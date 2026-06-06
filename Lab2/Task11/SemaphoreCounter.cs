@@ -1,7 +1,6 @@
 using ThreadSemaphore = System.Threading.Semaphore;
-using Task11.Counter;
 
-namespace Task11.Semaphore
+namespace Task11
 {
     public class SemaphoreCounter : ICounter
     {
@@ -39,5 +38,4 @@ namespace Task11.Semaphore
             }
         }
     }
-
 }

@@ -1,7 +1,4 @@
-using System;
-using Task11.Counter;
-
-namespace Task11.Monitor
+namespace Task11
 {
     public class MonitorCounter : ICounter
     {

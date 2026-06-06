@@ -1,7 +1,6 @@
-using Task11.Counter;
 using ThreadMutex = System.Threading.Mutex;
 
-namespace Task11.Mutex
+namespace Task11
 {
     public class MutexCounter : ICounter
     {
@@ -25,7 +24,7 @@ namespace Task11.Mutex
             }
         }
 
-        public void Increment() 
+        public void Increment()
         {
             mutex.WaitOne();
 
@@ -40,4 +39,3 @@ namespace Task11.Mutex
         }
     }
 }
-

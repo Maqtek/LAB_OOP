@@ -1,4 +1,4 @@
-﻿namespace Task11.Counter
+namespace Task11
 {
     public interface ICounter
     {

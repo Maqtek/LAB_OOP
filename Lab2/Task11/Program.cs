@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using Task11.Counter;
-using Task11.Monitor;
-using Task11.Mutex;
-using Task11.Semaphore;
+using System.Diagnostics;
 
 namespace Task11
 {
@@ -15,6 +11,8 @@ namespace Task11
         {
             for (int i = start; i <= end; i++)
             {
+                Console.WriteLine($"[Поток {Thread.CurrentThread.ManagedThreadId}] проверка числа {i}");
+
                 bool isPrime = true;
 
                 if (i < 2)
@@ -29,8 +27,6 @@ namespace Task11
                     }
                 }
 
-                Console.WriteLine($"[Поток {Thread.CurrentThread.ManagedThreadId}] проверка числа {i}");
-
                 if (isPrime)
                 {
                     counter.Increment();
@@ -39,6 +35,7 @@ namespace Task11
                 }
             }
         }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Выберите версию синхронизации:");
