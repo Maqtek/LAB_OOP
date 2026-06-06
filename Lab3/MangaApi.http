@@ -1,0 +1,92 @@
+@MangaApi_HostAddress = http://127.0.0.1:5073
+
+### Создать мангаку
+POST {{MangaApi_HostAddress}}/api/mangakas
+Content-Type: application/json
+
+{
+  "name": "Кэнтаро Миура",
+  "country": "Япония"
+}
+
+### Получить всех мангак
+GET {{MangaApi_HostAddress}}/api/mangakas
+
+### Обновить мангаку
+PUT {{MangaApi_HostAddress}}/api/mangakas/1
+Content-Type: application/json
+
+{
+  "name": "Кэнтаро Миура",
+  "country": "Япония"
+}
+
+### Создать жанр
+POST {{MangaApi_HostAddress}}/api/genres
+Content-Type: application/json
+
+{
+  "name": "Фэнтези"
+}
+
+### Создать второй жанр
+POST {{MangaApi_HostAddress}}/api/genres
+Content-Type: application/json
+
+{
+  "name": "Драма"
+}
+
+### Получить все жанры
+GET {{MangaApi_HostAddress}}/api/genres
+
+### Создать мангу
+POST {{MangaApi_HostAddress}}/api/mangas
+Content-Type: application/json
+
+{
+  "title": "Берсерк",
+  "releaseYear": 1989,
+  "mangakaId": 1,
+  "genreIds": [1, 2]
+}
+
+### Получить всю мангу со связями
+GET {{MangaApi_HostAddress}}/api/mangas
+
+### Получить мангу по ID
+GET {{MangaApi_HostAddress}}/api/mangas/1
+
+### Обновить мангу
+PUT {{MangaApi_HostAddress}}/api/mangas/1
+Content-Type: application/json
+
+{
+  "title": "Берсерк",
+  "releaseYear": 1989,
+  "mangakaId": 1,
+  "genreIds": [1]
+}
+
+### Проверить 400: неизвестный мангака
+POST {{MangaApi_HostAddress}}/api/mangas
+Content-Type: application/json
+
+{
+  "title": "Неизвестная манга",
+  "releaseYear": 2020,
+  "mangakaId": 999,
+  "genreIds": []
+}
+
+### Проверить 409: жанр используется мангой
+DELETE {{MangaApi_HostAddress}}/api/genres/1
+
+### Удалить мангу
+DELETE {{MangaApi_HostAddress}}/api/mangas/1
+
+### Удалить жанр после удаления манги
+DELETE {{MangaApi_HostAddress}}/api/genres/1
+
+### Удалить мангаку после удаления манги
+DELETE {{MangaApi_HostAddress}}/api/mangakas/1
